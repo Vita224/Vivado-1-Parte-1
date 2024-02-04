@@ -1,0 +1,57 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02.02.2024 19:53:24
+// Design Name: 
+// Module Name: one_bit_comparator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Vivado_1_Parte_1(
+    input logic A,
+    input logic B,
+    input logic C,
+    output logic IGUALES,
+    output logic A_MAYOR,
+    output logic B_MAYOR,
+    output logic C_MAYOR,
+    output logic A_MENOR,
+    output logic B_MENOR,
+    output logic C_MENOR
+    );
+    // signal declaration
+    logic C1,C2,C3,C4,C5,C6,C7,C8;
+    
+    // body
+    // sum of two prduct terms
+    assign IGUALES = ~(C3 & C4);    //NAND
+    assign A_MAYOR = ~(C5 & C);
+    assign B_MAYOR = ~(C6 & C);
+    assign C_MAYOR = ~(C7 & ~C);
+    assign A_MENOR = ~(C6 & ~C);
+    assign B_MENOR = ~(C5 & ~C);
+    assign C_MENOR = ~(C8 & C);
+    // product terms
+    assign C1 = ~(~A | ~B);  //NOR
+    assign C2 = ~(B | B);
+    assign C3 = ~(C | C1);
+    assign C4 = ~(C2 | ~C);
+    assign C5 = ~(A | ~B);
+    assign C6 = ~(~A | B);
+    assign C7 = ~(~A | ~B);
+    assign C8 = ~(A | B);
+
+endmodule
