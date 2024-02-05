@@ -38,12 +38,12 @@ module Vivado_1_Parte_1(
     
     // body
     // sum of two prduct terms
-    assign N1_IGUAL_N2 = C19;    //NAND
+    assign N1_IGUAL_N2 = C19;    
     assign N1_MAYOR_N2 = C18;
     assign N1_MENOR_N2 = C12;
 
     // product terms
-    assign C1 = ~(A & CONST_1);  //NOR
+    assign C1 = ~(A & CONST_1);  
     assign C2 = ~(B & CONST_1);
     assign C3 = C2 & Bs;
     assign C4 = ~(Bs & CONST_1);
