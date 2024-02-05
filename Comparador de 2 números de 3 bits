@@ -1,0 +1,66 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02.02.2024 19:53:24
+// Design Name: 
+// Module Name: one_bit_comparator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Vivado_1_Parte_1(
+    input logic A,
+    input logic B,
+    input logic C,
+    input logic As,
+    input logic Bs,
+    input logic Cs,
+    input logic CONST_1,
+    input logic CONST_0,
+    output logic N1_IGUAL_N2,
+    output logic N1_MAYOR_N2,
+    output logic N1_MENOR_N2
+    );
+    // signal declaration
+    logic C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19;
+    
+    // body
+    // sum of two prduct terms
+    assign N1_IGUAL_N2 = C19;    //NAND
+    assign N1_MAYOR_N2 = C18;
+    assign N1_MENOR_N2 = C12;
+
+    // product terms
+    assign C1 = ~(A & CONST_1);  //NOR
+    assign C2 = ~(B & CONST_1);
+    assign C3 = C2 & Bs;
+    assign C4 = ~(Bs & CONST_1);
+    assign C5 = ~(C4 & B);
+    assign C6 = ~(C | CONST_0);
+    assign C7 = C5 & Cs & C6;
+    assign C8 = C3 | C1 | C7;
+    assign C9 = ~(C8 & As);
+    assign C10 = ~(C7 | C3);
+    assign C11 = A | C10;
+    assign C12 = ~(C9 & C11);
+    assign C13 = C1 | As;
+    assign C14 = ~(Cs | CONST_0);
+    assign C15 = ~(C14 & C);
+    assign C16 = C15 & C5;
+    assign C17 = C16 | C12;
+    assign C18 = ~(C13 & C17);
+    assign C19 = ~(C18 | C12);
+
+endmodule
